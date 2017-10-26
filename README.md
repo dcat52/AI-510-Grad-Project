@@ -22,11 +22,7 @@ You will submit your source file(s) with at least three methods for each classif
 
 We will assume that the `csv` files are all of the same format; you will just ignore the given label when classifying.  If an input column has value less than -2.0, then ignore that entry; for training/testing if a label has value less than -2.0, then it should be skipped.
 
-Our goal is to define a technique that works with four different classification problems:
-* classify columns 0-5 as input with column 10 as label
-* classify columns 0-6 & 9  as input with column 10 as label
-* classify columns 0-6 & 9  as input with column 11 as label
-* classify columns 0-6 & 9 & 10  as input with column 11 as label
+Our goal is to define a technique that works with six different classification problems as described in the submission section.  A good solution will likely make the architecture dependent on the number of input elements in the feature vector, but you may also code each classification problem separately. 
 
 Some provided data may have invalid data (< -2.0) for some problems, and should be skipped.
 
