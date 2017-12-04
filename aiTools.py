@@ -3,18 +3,21 @@ import dataTools as dTools
 import util
 import math as m
 
+
 def featureExtractor(dataList):
     features = util.Counter()
     features['AVG'] = 1.0*sum(dataList)/len(dataList)
     features['SUM'] = sum(dataList)
     features['MIN'] = min(dataList)
     features['MAX'] = max(dataList)
-    features['RNG'] = max(dataList)-min(dataList)
-    temp = 0.0
-    for x in dataList:
-        temp+=m.pow(x,2)
+    #features['RNG'] = max(dataList)-min(dataList)
+    for index, d in enumerate(dataList):
+        features[index] = d
+    #temp = 0.0
+    #for x in dataList:
+    #    temp+=m.pow(x,2)
 
-    features['RMS'] = m.pow(temp,.5)
+    #features['RMS'] = m.pow(temp,.5)
     return features
 
 class classifier:
