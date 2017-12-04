@@ -1,5 +1,6 @@
 # questionTools
-import dTools
+
+import dataTools as dTools
 
 class Question:
 	def __init__(self, problem):
@@ -41,15 +42,14 @@ class Question:
 
 		assert removedDataCount + len(self._data) == len(dataList)
 
-
 def lookupColumns(_problem):
 	questions = {}
-	questions['q1'] = [2,3,4,5,10] # 			10%
-	questions['q2'] = [2,3,4,10] # 				10%
-	questions['q3'] = [0,1,2,3,4,5,10] # 		10%
-	questions['q4'] = [2,3,4,5,6,9,10] # 		10%
+	questions[1] = [2,3,4,5,10] # 				10%
+	questions[2] = [2,3,4,10] # 				10%
+	questions[3] = [0,1,2,3,4,5,10] # 			10%
+	questions[4] = [2,3,4,5,6,9,10] # 			10%
 
-	questions['q5'] = [2,3,4,5,6,9,11] # 		5%
-	questions['q6'] = [0,1,2,3,4,5,6,9,10,11] # 5%
+	questions[5] = [2,3,4,5,6,9,11] #			5%
+	questions[6] = [0,1,2,3,4,5,6,9,10,11] # 	5%
 
 	return questions[_problem]

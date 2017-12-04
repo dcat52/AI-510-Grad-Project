@@ -1,9 +1,9 @@
 # dataTools
 
 import csv, random
-import qTools
+import questionTools as qTools
 
-class data:
+class dataTotal:
 	def __init__(self, csv):
 		self._csv = csv
 		self._dataList = []
@@ -25,7 +25,7 @@ class datum:
 	def __str__(self):
 		return "data: %s\tlabel:%s" % (self._data, self._label)
 
-class qData:
+class dataQuestion:
 	def __init__(self, q, trainRatio):
 		self._q = q
 		self._trainRatio = trainRatio

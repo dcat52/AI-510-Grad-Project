@@ -1,17 +1,24 @@
-import qTools, dTools
-import perceptron
+import questionTools as qTools
+import dataTools as dTools
 import aiTools
 
 # define the question # and question column set
-problem = 'q1'
+problem = 1
 
 csv = 'project510Data.csv'
 
-data = dTools.data(csv)
+dataTotal = dTools.dataTotal(csv)
 
-q1 = qTools.Question(problem)
-q1.getInputDataAndLabels(data._dataList)
+q = qTools.Question(problem)
+q.getInputDataAndLabels(dataTotal._dataList)
 
-q1_data = dTools.qData(q1, 0.85)
+dataQ = dTools.dataQuestion(q, 0.85)
 
-aiTools.runClassifier(q1,q1_data, 100)
+classifier = aiTools.classifier(q, dataQ, aiTools.featureExtractor, 100)
+classifier.prepDataTrain()
+# Conduct training and testing
+
+#print "---------------------"
+print "Training..."
+classifier.train()
+classifier.test()
