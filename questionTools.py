@@ -36,9 +36,9 @@ class Question:
 				self._data.append(datum)
 				self._labelSet.add(dataRow[labelCell])
 
-		print "Removed data row count:", removedDataCount
-		print "Remaining data row count:", len(self._data)
-		print "Number of unique labels:", len(self._labelSet)
+		#print "Removed data row count:", removedDataCount
+		#print "Remaining data row count:", len(self._data)
+		#print "Number of unique labels:", len(self._labelSet)
 
 		assert removedDataCount + len(self._data) == len(dataList)
 

@@ -5,10 +5,10 @@ import math as m
 
 def featureExtractor(dataList):
     features = util.Counter()
-    #features['AVG'] = 1.0*sum(dataList)/len(dataList)
-    #features['SUM'] = sum(dataList)
-    #features['MIN'] = min(dataList)
-    #features['MAX'] = max(dataList)
+    features['AVG'] = 1.0*sum(dataList)/len(dataList)
+    features['SUM'] = sum(dataList)
+    features['MIN'] = min(dataList)
+    features['MAX'] = max(dataList)
     features['RNG'] = max(dataList)-min(dataList)
     temp = 0.0
     for x in dataList:
@@ -53,9 +53,19 @@ class classifier:
             self._testLabels.append(datum._label)
 
         # Extract features
-        print "Extracting features..."
         self._trainingData = map(self._featureFunction, rawTrainingData)
         self._testData = map(self._featureFunction, rawTestData)
+
+    def reset(self):
+        self.weights = {}
+        for label in self._legalLabels:
+            self.weights[label] = util.Counter()
+
+    def getWeights(self):
+        return self.weights
+
+    def again(self):
+        self.prepDataTrain()
 
     def train( self):
         trainingData = self._trainingData
@@ -91,7 +101,7 @@ class classifier:
         testLabels = self._testLabels
         testData = self._testData
 
-        print "Testing..."
         guesses = self.classify(testData)
         correct = [guesses[i] == testLabels[i] for i in range(len(testLabels))].count(True)
-        print str(correct), ("correct out of " + str(len(testLabels)) + " (%.1f%%).") % (100.0 * correct / len(testLabels))
+        return (1.0 * correct / len(testLabels))
+        #print str(correct), ("correct out of " + str(len(testLabels)) + " (%.1f%%).") % (100.0 * correct / len(testLabels))

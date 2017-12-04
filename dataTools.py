@@ -37,6 +37,9 @@ class dataQuestion:
 
 		self.splitTrainAndTest()
 
+		#print "train data:", len(self._trainData)
+		#print "test data:", len(self._testData)
+
 	def splitTrainAndTest(self):
 		tempData = self._q._data[:]
 
@@ -48,14 +51,11 @@ class dataQuestion:
 		self._trainData = tempData[:self._trainCount]
 		self._testData = tempData[self._trainCount:]
 
-		print "train data:", len(self._trainData)
-		print "test data:", len(self._testData)
-
 		assert dataCount == len(self._trainData) + len(self._testData)
 
-		print "\nTEST DATA:"
-		for d in self._testData:
-			print "\t",d
+		#print "\nTEST DATA:"
+		#for d in self._testData:
+		#	print "\t",d
 
 	def reshuffle(self):
 		self.splitTrainAndTest()
