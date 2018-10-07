@@ -27,10 +27,10 @@ def main(problem, dataTotal):
 
 	num_processes = 5
 	allRuns = []
-	for RATIO in range(40,95,10):
+	for RATIO in range(35,60,5):
 		dataQ = dTools.dataQuestion(q, RATIO/100.0)
 
-		for MAX_ITER in range(50,425,25):
+		for MAX_ITER in range(20,80,5):
 			classifier = aiTools.classifier(q, dataQ, aiTools.featureExtractor, MAX_ITER)
 
 			manager = multiprocessing.Manager()
@@ -73,7 +73,7 @@ pool = multiprocessing.Pool(num_processes)
 processes = []
 for i in range(num_processes):
 	process_name = 'P%i' % i
-	new_process = multiprocessing.Process(target=main, args=(i+2, dataTotal,))
+	new_process = multiprocessing.Process(target=main, args=(i+1, dataTotal,))
 	new_process.daemon = False
 	processes.append(new_process)
 	new_process.start()

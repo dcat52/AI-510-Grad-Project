@@ -17,8 +17,6 @@ def main():
 
 	dataQ = dTools.dataQuestion(q, trainToTestRatio)
 
-	nRuns = 10
-
 	classifier = aiTools.classifier(q, dataQ, aiTools.featureExtractor, maxIter)
 
 	classifier.prepDataTrain()
